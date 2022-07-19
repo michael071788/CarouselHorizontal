@@ -14,7 +14,8 @@ import {
 import Carousel from "react-native-snap-carousel";
 import { scrollInterpolator, animatedStyles } from "./src/utils/animations";
 // import styles from "./src/styles/index.style";
-import * as VideoThumbnails from "expo-video-thumbnails";
+// import * as VideoThumbnails from "expo-video-thumbnails";
+import { Card } from "react-native-paper";
 
 const { width: viewportWidth, height: viewportHeight } =
   Dimensions.get("window");
@@ -40,12 +41,12 @@ for (let i = 0; i < 4; i++) {
 const _renderItem = ({ item }) => {
   return (
     <View style={styles.slide}>
-      <View style={styles.slideInner}>
+      <Card style={styles.slideInner}>
         <Image
           style={{ flex: 1, borderRadius: 10 }}
           source={{ uri: item.imageURI }}
         />
-      </View>
+      </Card>
     </View>
   );
 };
@@ -93,12 +94,12 @@ export default function App() {
           vertical={true}
         />
       </View>
-      <View
+      {/* <View
         style={{
           height: wp(20),
           //backgroundColor: "#fa6b6b"
         }}
-      />
+      /> */}
     </View>
   );
 }
@@ -117,6 +118,7 @@ const styles = StyleSheet.create({
   slideInner: {
     flex: 1, //backgroundColor: "#6e7cf5",
     borderRadius: 10,
+    elevation: 6,
   },
   image: {
     width: 200,
